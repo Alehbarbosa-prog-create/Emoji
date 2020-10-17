@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #f28f0c;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        
+        .emoji {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #ffca4f;
+            height: 600px;
+            width: 600px;
+            border-radius: 50vh;
+        }
+        
+        .boca {
+            height: 400px;
+            width: 400px;
+            position: absolute;
+            border: 20px solid transparent;
+            border-bottom: 20px solid black;
+            border-radius: 50vh;
+        }
+        
+        .olhos {
+            display: flex;
+            margin-bottom: 100px;
+        }
+        
+        .olho {
+            height: 200px;
+            width: 200px;
+            background: #ffffff;
+            margin: 20px;
+            border-radius: 50vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .iris {
+            height: 30px;
+            width: 30px;
+            background: #000000;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50vh;
+            border: 20px solid #503838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="emoji">
+        <div class="olhos">
+            <div class="olho">
+                <div class="iris"></div>
+            </div>
+            <div class="olho">
+                <div class="iris"></div>
+            </div>
+        </div>
+        <div class="boca"></div>
+    </div>
+    <script>
+        let iris = document.getElementsByClassName('iris');
+        document.onmousemove = function() {
+            let x = (event.clientX * 100) / window.innerHeight;
+            let y = (event.clientY * 100) / window.innerWidth;
+            for (let i = 0; i < iris.length; i++) {
+                iris[i].style.left = "$ {x} % ";
+                iris[i].style.top = "$ {y} % ";
+                iris[i].style.transform = "translate(-${x}%,-${y}%)";
+
+            }
+        }
+    </script>
+</body>
+
+</html>
